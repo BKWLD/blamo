@@ -13,3 +13,6 @@ dist
 
 # Config
 .env
+
+# robot
+/static/robots.txt
