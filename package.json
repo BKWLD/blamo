@@ -1,0 +1,33 @@
+{
+  "name": "blamo",
+  "version": "1.0.0",
+  "description": "Bukwild's Nuxt starter template and bootstrapping module",
+  "main": "module/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://weotch@github.com/BKWLD/blamo.git"
+  },
+  "keywords": [
+    "nuxt"
+  ],
+  "author": "Bukwild",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BKWLD/blamo/issues"
+  },
+  "homepage": "https://github.com/BKWLD/blamo#readme",
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "coffee-loader": "^0.9.0",
+    "coffeescript": "^2.3.1",
+    "normalize.css": "^8.0.0",
+    "pug": "^2.0.3",
+    "pug-loader": "^2.4.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2"
+  }
+}
