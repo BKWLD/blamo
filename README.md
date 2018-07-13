@@ -8,6 +8,7 @@ This forks the [official Nuxt starter template](https://github.com/nuxt-communit
 - [Sentry error reporting](https://github.com/nuxt-community/sentry-module) (including source maps and collecting user feedback)
 - [Robots.txt](https://www.npmjs.com/package/nuxt-robots-module) (that automatically denies all on non-production environments)
 - Adds common plugins:
+	- normalize.css
 	- fastclick
 	- [unorphan](https://github.com/BKWLD/vue-unorphan)
 	- [balance-text](https://github.com/BKWLD/vue-balance-text)
