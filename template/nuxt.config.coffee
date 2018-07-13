@@ -14,8 +14,8 @@ module.exports =
 			{ rel: 'icon', 	type: 'image/x-icon', href: '/favicon.ico' }
 		]
 
-  # Global styles
+	# Global styles
 	css: [
 		'normalize.css'
-		'~/assets/layout.styl'
+		'~/assets/app.styl'
 	]
