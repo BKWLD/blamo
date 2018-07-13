@@ -1,0 +1,46 @@
+/**
+ * This partial is @import-ed automatically at the top of every styl file
+ * who is required from a JS file by a webpack loader.  It should not contain
+ * any styles because they would be repeated in every instance of the import.
+ * It should only contain variable and mixin definitions.
+ */
+
+/*******************************************************************************
+ * Vars
+ */
+
+// Breakpoints
+desktop = 1368px
+tablet-landscape = 1024px
+tablet = 768px
+mobile-landscape = 580px
+mobile = 500px
+
+// Colors
+black = #111
+
+// Transitions
+smooth-in = cubic-bezier(.19,1,.22,1)
+smooth-out = cubic-bezier(.55,.04,.95,.41)
+smooth-in-out = cubic-bezier(.8,0,.2,1)
+
+// Typography
+body-font-size = 20px
+
+// Layout
+max-w = desktop
+
+/*******************************************************************************
+ * Mixins
+ */
+
+// Mixins must be relative to `resolve.root` (the "~") since this module may be
+// included at any folder depth. Globing is not possible here because the glob-er
+// doesn't work within @import-ed files.
+
+// The Bukwild shared stylus library
+@require '~bukwild-stylus-library';
+support-for-ie = false // Don't generate px values with rem function
+
+// Project mixins
+// @require '~utils/typography.styl';

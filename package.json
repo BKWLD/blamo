@@ -2,7 +2,7 @@
   "name": "blamo",
   "version": "1.0.0",
   "description": "Bukwild's Nuxt starter template and bootstrapping module",
-  "main": "module/index.js",
+  "main": "module/index.coffee",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,14 +20,20 @@
   },
   "homepage": "https://github.com/BKWLD/blamo#readme",
   "dependencies": {
+    "@nuxtjs/sentry": "^1.1.1",
+    "@sentry/webpack-plugin": "^1.5.2",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "coffee-loader": "^0.9.0",
     "coffeescript": "^2.3.1",
     "normalize.css": "^8.0.0",
+    "nuxt-robots-module": "^1.3.0",
+    "nuxt-stylus-resources-loader": "^1.1.3",
     "pug": "^2.0.3",
     "pug-loader": "^2.4.0",
     "stylus": "^0.54.5",
-    "stylus-loader": "^3.0.2"
+    "stylus-loader": "^3.0.2",
+    "vue-balance-text": "^1.0.3",
+    "vue-unorphan": "^1.0.1"
   }
 }
