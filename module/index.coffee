@@ -14,9 +14,6 @@ releaseName = process.env.COMMIT_REF || git.long() # COMMIT_REF is from Netlify
 # Bootstrap boilerplate stuff
 module.exports = (options) ->
 	
-	# Set the mode via .env
-	@options.mode = process.env.NUXT_MODE || 'universal'
-	
 	# Set the default loading color to Bukwild purple
 	@options.loading.color = '#9478b1'
 	
