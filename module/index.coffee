@@ -32,6 +32,7 @@ module.exports = (options) ->
 	
 	# Use the CJS version of Vue
 	@extendBuild (config) ->
+		config.resolve = { alias: {} } unless config.resolve
 		config.resolve.alias.vue$ = 'vue/dist/vue.common.js'
 		return
 	
