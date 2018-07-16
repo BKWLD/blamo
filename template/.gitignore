@@ -16,3 +16,6 @@ dist
 
 # robot
 /static/robots.txt
+
+# mac
+.DS_Store
