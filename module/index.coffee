@@ -52,6 +52,7 @@ module.exports = (options) ->
 				include: './.nuxt/dist' # ... js and maps are directly within here
 				urlPrefix: '~/_nuxt/' # ... because this is where assets live in /dist
 				release: releaseName
+		return
 	
 	# Provide common utils to all modules so they don't need to be expliclity
 	# required.
