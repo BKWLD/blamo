@@ -66,7 +66,7 @@ module.exports = (options) ->
 	
 	# Prevent big vendors file
 	# https://github.com/nuxt/nuxt.js/pull/2687
-	@options.build.maxChunkSize = 300000 if process.env.NUXT_MODE != 'spa'
+	@options.build.maxChunkSize = 300000 if @options.mode != 'spa'
 	
 	# Generate a robots.txt
 	@addModule [ 'nuxt-robots-module', do ->
