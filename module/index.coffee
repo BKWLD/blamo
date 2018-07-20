@@ -14,8 +14,8 @@ releaseName = process.env.COMMIT_REF || git.long() # COMMIT_REF is from Netlify
 # Bootstrap boilerplate stuff
 module.exports = (options) ->
 	
-	# Set the default loading color to Bukwild purple
-	@options.loading.color = '#9478b1'
+	# Set the default loading color to Bukwild purple (it is "black" by default)
+	@options.loading.color = '#9478b1' if @options.loading.color == 'black'
 	
 	# Add Coffeescript support
 	@addModule 'nuxt-coffeescript-module', true
