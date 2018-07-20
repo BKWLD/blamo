@@ -58,3 +58,4 @@ $ yarn start
 # generate a static project
 $ yarn generate
 ```
+
