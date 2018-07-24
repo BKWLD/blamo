@@ -25,7 +25,7 @@ Make sure to have `node 8.0+` and `npm 5.0+` installed
 This is a project template for [vue-cli](https://github.com/vuejs/vue-cli).
 
 ``` bash
-$ vue init BKWLD/blamo my-project  
+$ vue init blamo my-project  
 $ cd my-project                     
 # install dependencies
 $ yarn
@@ -35,27 +35,4 @@ $ yarn
 
 ## Usage
 
-### Development
-
-``` bash
-# serve with hot reloading at localhost:3000
-$ yarn dev
-```
-
-Go to [http://localhost:3000](http://localhost:3000)
-
-### Production
-
-``` bash
-# build for production and launch the server
-$ yarn build
-$ yarn start
-```
-
-### Generate
-
-``` bash
-# generate a static project
-$ yarn generate
-```
-
+See the template's [README](template/README.md)
