@@ -25,7 +25,7 @@ Make sure to have `node 8.0+` and `npm 5.0+` installed
 This is a project template for [vue-cli](https://github.com/vuejs/vue-cli).
 
 ``` bash
-$ vue init blamo my-project  
+$ vue init BKWLD/blamo my-project  # or vue init BKWLD/blamo .
 $ cd my-project                     
 # install dependencies
 $ yarn
