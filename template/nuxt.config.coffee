@@ -19,3 +19,8 @@ module.exports =
 		'normalize.css'
 		'~/assets/app.styl'
 	]
+
+	# Nuxt modules
+	modules: [
+		'blamo'
+	]
