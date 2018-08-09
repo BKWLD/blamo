@@ -1,12 +1,11 @@
 <!--
-Homepage
+The layout header
 -->
 
 <template lang='pug'>
 
-.homepage
-	h1 {{ name }}
-	h2 {{ description }}
+header
+	.logo BLAMO! 🥊
 
 </template>
 
@@ -26,6 +25,7 @@ Homepage
 
 <style lang='stylus' scoped>
 
-
+.logo
+	font-size 24px
 
 </style>
