@@ -1,3 +1,6 @@
+# Load .env vars
+require('dotenv').config() if require('fs').existsSync '.env'
+
 # Config object
 module.exports =
 

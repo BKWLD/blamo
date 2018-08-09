@@ -14,6 +14,7 @@
     "nuxt": "^1.0.0"
   },
   "devDependencies": {
-    "blamo": "^1.0.2"
+    "blamo": "^1.0.2",
+    "dotenv": "^6.0.0"
   }
 }
