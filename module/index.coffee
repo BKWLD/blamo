@@ -36,6 +36,9 @@ module.exports = (options) ->
 		config.resolve.alias.vue$ = 'vue/dist/vue.common.js'
 		return
 	
+	# Enable Sentry by default
+	@addModule '@nuxtjs/sentry', true
+	
 	# Sentry.io config
 	@options.sentry = config:
 		release: releaseName
