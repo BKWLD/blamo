@@ -12,7 +12,6 @@ This forks the [official Nuxt starter template](https://github.com/nuxt-communit
 	- fastclick
 	- [unorphan](https://github.com/BKWLD/vue-unorphan)
 	- [balance-text](https://github.com/BKWLD/vue-balance-text)
-	- [vue-visual](https://github.com/BKWLD/vue-visual)
 	
 As much as possible is moved to a Nuxt module (at `module/index.js`) so that configuration isn't hard coded into your app and can receive npm updates.
 
@@ -36,3 +35,19 @@ $ yarn
 ## Usage
 
 See the template's [README](template/README.md)
+
+## Config
+
+Many defaults can be disabled with the following options:
+
+```
+module.exports =
+	modules: ['blamo', 
+		noCjsVue: false
+		noSentry: false
+		noMaxChunkSize: false
+		noRobots: false
+		noBalanceText: false
+		noUnorphan: false
+		noFailCodeOnGenerateError: false
+	]

@@ -23,39 +23,45 @@ module.exports = (options) ->
 	# Prepend definitions.styl to all stylus styles
 	@addModule ['nuxt-stylus-resources-loader', './assets/definitions.styl'], true
 
-	# Find the vue-loader and disable esModule exports so child components
-	# can be one liners
-	@extendBuild (config) ->
-		rule = config.module.rules.find (rule) -> rule.loader == 'vue-loader'
-		rule.options.esModule = false
-		return
+	# Toggle CJS support in Vue
+	unless options.noCjsVue
+
+		# Find the vue-loader and disable esModule exports so child components
+		# can be one liners
+		@extendBuild (config) ->
+			rule = config.module.rules.find (rule) -> rule.loader == 'vue-loader'
+			rule.options.esModule = false
+			return
 	
-	# Use the CJS version of Vue
-	@extendBuild (config) ->
-		config.resolve = { alias: {} } unless config.resolve
-		config.resolve.alias.vue$ = 'vue/dist/vue.common.js'
-		return
+		# Use the CJS version of Vue
+		@extendBuild (config) ->
+			config.resolve = { alias: {} } unless config.resolve
+			config.resolve.alias.vue$ = 'vue/dist/vue.common.js'
+			return
 	
-	# Enable Sentry by default
-	@addModule '@nuxtjs/sentry', true
+	# Toggle Sentry
+	unless options.noSentry
 	
-	# Sentry.io config
-	@options.sentry = config:
-		release: releaseName
-		environment: process.env.SENTRY_ENVIRONMENT
-		extra: # Netlify env variables
-			url: process.env.URL
-			deploy_url: process.env.DEPLOY_URL
-	
-	# Configure Sentry source map handling
-	@extendBuild (config, { isDev }) ->
-		if process.env.SENTRY_DSN and not isDev
-			config.devtool = 'hidden-source-map' # Enable maps on prod
-			config.plugins.push new SentryCliPlugin
-				include: './.nuxt/dist' # ... js and maps are directly within here
-				urlPrefix: '~/_nuxt/' # ... because this is where assets live in /dist
-				release: releaseName
-		return
+		# Enable Sentry by default
+		@addModule '@nuxtjs/sentry', true
+		
+		# Sentry.io config
+		@options.sentry = config:
+			release: releaseName
+			environment: process.env.SENTRY_ENVIRONMENT
+			extra: # Netlify env variables
+				url: process.env.URL
+				deploy_url: process.env.DEPLOY_URL
+		
+		# Configure Sentry source map handling
+		@extendBuild (config, { isDev }) ->
+			if process.env.SENTRY_DSN and not isDev
+				config.devtool = 'hidden-source-map' # Enable maps on prod
+				config.plugins.push new SentryCliPlugin
+					include: './.nuxt/dist' # ... js and maps are directly within here
+					urlPrefix: '~/_nuxt/' # ... because this is where assets live in /dist
+					release: releaseName
+			return
 	
 	# Provide common utils to all modules so they don't need to be expliclity
 	# required.
@@ -69,21 +75,23 @@ module.exports = (options) ->
 	
 	# Prevent big vendors file
 	# https://github.com/nuxt/nuxt.js/pull/2687
-	@options.build.maxChunkSize = 300000 if @options.mode != 'spa'
+	unless options.noMaxChunkSize
+		@options.build.maxChunkSize = 300000 if @options.mode != 'spa'
 	
 	# Generate a robots.txt
-	@addModule [ 'nuxt-robots-module', do ->
-		if process.env.SENTRY_ENVIRONMENT == 'production'
-			'User-Agent': '*'
-			Allow: '/'
-		else
-			'User-Agent': '*'
-			Disallow: '/'
-	], true
+	unless options.noRobots
+		@addModule [ 'nuxt-robots-module', do ->
+			if process.env.SENTRY_ENVIRONMENT == 'production'
+				'User-Agent': '*'
+				Allow: '/'
+			else
+				'User-Agent': '*'
+				Disallow: '/'
+		], true
 	
 	# Common, simple plugins
-	@addModule 'vue-balance-text/nuxt/module', true
-	@addModule 'vue-unorphan/nuxt/module', true
+	@addModule 'vue-balance-text/nuxt/module', true unless options.noBalanceText
+	@addModule 'vue-unorphan/nuxt/module', true unless options.noUnorphan
 	
 	# Return an exit code of 1 if there is an error during generation.  This
 	# forces platforms like Netlify to prevent promoting a build with an error.
