@@ -81,7 +81,7 @@ module.exports = (options) ->
 	# Generate a robots.txt
 	unless options.noRobots
 		@addModule [ 'nuxt-robots-module', do ->
-			if process.env.SENTRY_ENVIRONMENT == 'production'
+			if 'production' in [process.env.ENVIRONMENT, process.env.SENTRY_ENVIRONMENT]
 				'User-Agent': '*'
 				Allow: '/'
 			else
