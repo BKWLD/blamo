@@ -84,6 +84,12 @@ module.exports = (options) ->
 	# Common, simple plugins
 	@addModule 'vue-balance-text/nuxt/module', true
 	@addModule 'vue-unorphan/nuxt/module', true
+	
+	# Return an exit code of 1 if there is an error during generation.  This
+	# forces platforms like Netlify to prevent promoting a build with an error.
+	unless options.noFailCodeOnGenerateError
+		@nuxt.hook 'generate:done', (generator, errors) ->
+			process.exit(1) if errors.length
 
 # Exporta meta for Nuxt internals
 module.exports.meta = require '../package.json'
