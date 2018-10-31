@@ -48,7 +48,7 @@ module.exports = (options) ->
 		# Sentry.io config
 		@options.sentry = config:
 			release: releaseName
-			environment: process.env.SENTRY_ENVIRONMENT
+			environment: process.env.SENTRY_ENV || process.env.APP_ENV
 			extra: # Netlify env variables
 				url: process.env.URL
 				deploy_url: process.env.DEPLOY_URL
@@ -81,7 +81,7 @@ module.exports = (options) ->
 	# Generate a robots.txt
 	unless options.noRobots
 		@addModule [ 'nuxt-robots-module', do ->
-			if 'production' in [process.env.ENVIRONMENT, process.env.SENTRY_ENVIRONMENT]
+			if 'production' == (process.env.APP_ENV || process.env.SENTRY_ENV)
 				'User-Agent': '*'
 				Allow: '/'
 			else
