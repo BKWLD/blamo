@@ -1,6 +1,6 @@
 {
   "name": "blamo",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Bukwild's Nuxt starter template and bootstrapping module",
   "main": "module/index.coffee",
   "scripts": {
