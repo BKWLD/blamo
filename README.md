@@ -1,5 +1,7 @@
 # Blamo
 
+> [Cloak](https://github.com/BKWLD/cloak) is Bukwild's current Nuxt boilerplate, use that instead.
+
 This forks the [official Nuxt starter template](https://github.com/nuxt-community/starter-template) and adds elements of Bukwild's default stack including:
 
 - [Coffeescript scripting](https://github.com/BKWLD/nuxt-coffeescript-module)
